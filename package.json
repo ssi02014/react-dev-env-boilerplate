@@ -1,5 +1,5 @@
 {
-  "name": "react_init_boilerplate",
+  "name": "react_development_environment_boilerplate",
   "version": "1.0.0",
   "description": "리액트 환경 보일러플레이트",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ssi02014/React_Init_Boilerplate.git"
+    "url": "git+https://github.com/ssi02014/React_Development_Environment_Boilerplate.git"
   },
   "author": "Gromit",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ssi02014/React_Init_Boilerplate/issues"
+    "url": "https://github.com/ssi02014/React_Development_Environment_Boilerplate/issues"
   },
-  "homepage": "https://github.com/ssi02014/React_Init_Boilerplate#readme",
+  "homepage": "https://github.com/ssi02014/React_Development_Environment_Boilerplate/blob/master/README.md",
   "dependencies": {
     "@types/node": "^17.0.33",
     "@types/react": "^18.0.9",
