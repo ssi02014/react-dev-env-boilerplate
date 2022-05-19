@@ -14,7 +14,10 @@ function App() {
         <Link to={'/test'}>테스트</Link>
       </nav>
 
-      <h1>react18, webpack5, babel, eslint, prettier BoilerPlate</h1>
+      <h1>
+        react18, TypeScript, webpack5, Webpack Dev Server, babel, eslint,
+        prettier, BoilerPlate
+      </h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<Test />} />
