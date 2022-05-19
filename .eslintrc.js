@@ -7,8 +7,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react', 'react-hooks'],
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
   rules: {
     '@typescript-eslint/no-var-requires': 'off', // require 쓰는 것을 방지하는 옵션인데 끔

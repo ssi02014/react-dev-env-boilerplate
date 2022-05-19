@@ -106,7 +106,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    // 빌드할 때 typescript의 타입 검사 속도 증가
     new ForkTsCheckerWebpackPlugin({
       async: false,
     }),
