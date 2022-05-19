@@ -22,6 +22,7 @@ module.exports = {
     alias: {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@pages': path.resolve(__dirname, 'src/pages/'),
+      '@assets': path.resolve(__dirname, 'src/assets/'),
     },
   },
   optimization: {
@@ -50,9 +51,11 @@ module.exports = {
       },
       {
         test: /\.(svg|png|jpg|jpeg|gif|ico)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 40 * 1024,
+          },
         },
       },
       {
@@ -67,15 +70,6 @@ module.exports = {
             options: { minimize: true },
           },
         ],
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: 40 * 1024,
-          },
-        },
       },
     ],
   },
