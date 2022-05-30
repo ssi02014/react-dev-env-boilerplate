@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development webpack serve --open --config webpack.dev.js",
+    "start": "webpack serve --open --config webpack.dev.js",
     "start:build": "serve -s build -l 8080",
-    "build": "rm -rf ./build && NODE_ENV=production webpack --config webpack.prod.js"
+    "build": "rm -rf ./build && webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
