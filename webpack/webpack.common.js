@@ -12,28 +12,36 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
   entry: './src/index.tsx',
   target: 'web',
+  output: {
+    filename: 'static/js/[name].[contenthash:8].js',
+    path: path.resolve('build'),
+    chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
+    publicPath: '/',
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      '@components': path.resolve(__dirname, 'src/components/'),
-      '@pages': path.resolve(__dirname, 'src/pages/'),
-      '@assets': path.resolve(__dirname, 'src/assets/'),
+      '@components': path.resolve(__dirname, '../src/components/'),
+      '@pages': path.resolve(__dirname, '../src/pages/'),
+      '@assets': path.resolve(__dirname, '../src/assets/'),
     },
   },
   optimization: {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
+      // production 모드에서만 적용
       new TerserPlugin({
         terserOptions: {
           compress: {
-            drop_console: process.env.NODE_ENV === 'production', // 콘솔 제거
+            drop_console: true, // 콘솔 제거
           },
         },
       }),
     ],
     splitChunks: {
       chunks: 'all',
+      name: false,
     },
   },
   module: {

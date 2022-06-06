@@ -9,6 +9,8 @@ const Home = () => {
   const handleClick = () => {
     setNumber((prev) => prev + 1);
   };
+
+  console.log(number);
   return (
     <div>
       <Example value="props 테스트" />

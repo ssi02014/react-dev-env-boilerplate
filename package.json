@@ -2,13 +2,12 @@
   "name": "react_development_environment_boilerplate",
   "version": "1.0.0",
   "description": "리액트 환경 보일러플레이트",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --open --config webpack.dev.js",
+    "start": "webpack serve --open --config webpack/webpack.dev.js",
     "start:build": "serve -s build -l 8080",
-    "build:prod": "webpack --config webpack.prod.js",
-    "build:dev": "webpack --config webpack.dev.js"
+    "build:prod": "webpack --config webpack/webpack.prod.js",
+    "build:dev": "webpack --config webpack/webpack.dev.js"
   },
   "repository": {
     "type": "git",
