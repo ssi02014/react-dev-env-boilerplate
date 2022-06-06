@@ -6,16 +6,11 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
-  output: {
-    filename: 'static/js/[name].[contenthash:8].js',
-    path: path.resolve(__dirname + '/build'),
-    chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
-    publicPath: '/',
-  },
   target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -39,7 +34,6 @@ module.exports = {
     ],
     splitChunks: {
       chunks: 'all',
-      name: false,
     },
   },
   module: {
@@ -104,5 +98,6 @@ module.exports = {
       async: false,
     }),
     new ESLintPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };
