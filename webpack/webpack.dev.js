@@ -8,7 +8,6 @@ require('dotenv').config({ path: './.env.development' });
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'source-map',
-  // Webpack Dev Server
   devServer: {
     static: false,
     client: {

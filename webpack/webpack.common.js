@@ -1,12 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { EsbuildPlugin } = require('esbuild-loader');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
@@ -29,14 +28,9 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new CssMinimizerPlugin(),
-      // production 모드에서만 적용
-      new TerserPlugin({
-        terserOptions: {
-          compress: {
-            drop_console: true, // 콘솔 제거
-          },
-        },
+      new EsbuildPlugin({
+        target: 'esnext',
+        css: true,
       }),
     ],
     splitChunks: {
@@ -47,18 +41,31 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(tsx|ts|js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
+        test: /\.[jt]sx?$/,
+        loader: 'esbuild-loader',
+        options: {
+          target: 'es2015',
+        },
       },
       {
-        test: /\.(svg|png|jpg|jpeg|gif|ico)$/,
+        test: /\.(png|jpg|jpeg|gif|ico|webp)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 40 * 1024,
+            maxSize: 4 * 1024, // 4kb
           },
         },
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/,
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] },
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(css)$/,

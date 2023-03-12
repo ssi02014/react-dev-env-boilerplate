@@ -10,7 +10,7 @@ git clone https://github.com/ssi02014/React_Development_Environment_Boilerplate.
 <br />
 
 ## master Branch
-### 👨🏻‍💻 최근 업데이트 (2022.03.12) 
+### 👨🏻‍💻 최근 업데이트 (2023.03.12) 
 - React18
 - TypeScript
 - Webpack5
@@ -21,7 +21,7 @@ git clone https://github.com/ssi02014/React_Development_Environment_Boilerplate.
 <br />
 
 ## esbuild-loader Branch
-### 👨🏻‍💻 최근 업데이트 (2022.03.12) 
+### 👨🏻‍💻 최근 업데이트 (2023.03.12) 
 - React18
 - TypeScript
 - Webpack5
