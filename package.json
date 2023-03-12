@@ -20,10 +20,6 @@
   },
   "homepage": "https://github.com/ssi02014/React_Development_Environment_Boilerplate/blob/master/README.md",
   "dependencies": {
-    "@types/node": "^18.15.0",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@types/react-router-dom": "^5.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.9.0",
@@ -32,6 +28,10 @@
     "typescript": "^4.9.5"
   },
   "devDependencies": {
+    "@types/node": "^18.15.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "clean-webpack-plugin": "^4.0.0",
