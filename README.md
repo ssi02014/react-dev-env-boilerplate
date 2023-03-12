@@ -2,32 +2,57 @@
 
 <br />
 
-## Repo Clone
+## 📗 절차
+### 1. Repo Clone
 ```
-git clone https://github.com/ssi02014/React_Development_Environment_Boilerplate.git
+git clone https://github.com/ssi02014/react-dev-env-boilarplate.git
 ```
 
 <br />
 
-## master Branch
-### 👨🏻‍💻 최근 업데이트 (2023.03.12) 
-- React18
+### 2. Branch & Checkout & Pull
+- 해당 레포는 `master` 브랜치와 `esbuild-loader` 브랜치로 나뉘어져있다. (각각 구성한 셋팅은 아래 참고)
+- 따라서, esbuild-loader 브랜치 코드를 확인하려면 아래의 절차를 진행한다.
+
+```
+git branch esbuild-loader
+git checkout esbuild-loader
+git pull origin esbuild-loader
+```
+
+<br />
+
+### 3. 패키지 설치
+- 해당 레포는 yarn 패키지 매니저를 기반으로 패키지를 관리하고 있다. 따라서 yarn으로 패키지를 설치하자.
+
+```
+yarn
+or
+yarn install
+```
+
+<br />
+
+## 👨🏻‍💻 master Branch
+**최근 업데이트 (2023.03.13)**
+- react v18
 - TypeScript
-- Webpack5
+- webpack v5
 - Babel
 - eslint
 - prettier
 
 <br />
 
-## esbuild-loader Branch
-### 👨🏻‍💻 최근 업데이트 (2023.03.12) 
-- React18
-- TypeScript
-- Webpack5
-- **Babel -> esbuild-loader**
+## 👨🏻‍💻 esbuild-loader Branch
+**최근 업데이트 (2023.03.13)**
+- react v18
+- typeScript
+- webpack v5
+- **esbuild-loader**
 - eslint
 - prettier
+
 
 <br />
 
