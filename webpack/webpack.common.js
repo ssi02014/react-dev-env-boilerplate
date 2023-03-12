@@ -34,7 +34,7 @@ module.exports = {
       new TerserPlugin({
         terserOptions: {
           compress: {
-            drop_console: true, // 콘솔 제거
+            drop_console: true,
           },
         },
       }),
@@ -52,13 +52,24 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.(svg|png|jpg|jpeg|gif|ico)$/,
+        test: /\.(png|jpg|jpeg|gif|ico|webp)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 40 * 1024,
+            maxSize: 4 * 1024, // 4kb
           },
         },
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/,
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] },
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(css)$/,

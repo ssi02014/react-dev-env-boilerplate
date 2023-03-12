@@ -11,15 +11,17 @@ function App() {
   return (
     <div className="App">
       <Suspense fallback={<div>로딩중...</div>}>
-        <nav>
-          <Link to={'/'}>홈으로</Link>
-          <Link to={'/test'}>테스트</Link>
-        </nav>
+        <ul>
+          <li>
+            <Link to={'/'}>홈으로</Link>
+          </li>
+          <li>
+            <Link to={'/test'}>테스트</Link>
+          </li>
+        </ul>
 
-        <h1>
-          react18, TypeScript, webpack5, Webpack Dev Server, babel, eslint,
-          prettier, BoilerPlate
-        </h1>
+        <h1>프론트엔드 개발 환경 커스텀 구축</h1>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/test" element={<Test />} />
