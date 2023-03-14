@@ -1,3 +1,14 @@
 body {
+  font-family: Pretendard;
   background-color: rgb(192, 249, 230);
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-display: block;
+  font-weight: 500;
+  src: url(./assets/fonts/Pretendard-Medium.subset.woff2) format('woff2'),
+  url(./assets/fonts/Pretendard-Medium.subset.woff) format('woff');
+  unicode-range: U+AC00-D7A3, U+0041-005A, U+0061-007A, U+0030-0039;
 }
