@@ -111,11 +111,17 @@ yarn install
 <br />
 
 **기존 babel-loader 빌드 타임**
+
+<br />
+
 <img width="895" alt="스크린샷 2023-03-12 오후 4 58 35" src="https://user-images.githubusercontent.com/64779472/224532396-fadcf15b-e561-4791-b7b8-d2175aea9b31.png">
 
 <br />
 
 **esbuild-loader 도입 후 빌드 타임**
+
+<br />
+
 <img width="690" alt="스크린샷 2023-03-12 오후 4 55 08" src="https://user-images.githubusercontent.com/64779472/224532394-d49742c1-8151-433c-b2c2-051b3def0578.png">
 
 <br />
@@ -139,3 +145,53 @@ const Example = () => (
 - @svgr/webpack를 적용하면 위 예제처럼 svg를 import해서 컴포넌트로 형식으로 사용할 수 있다.
 
 <br />
+
+## 👍 그 외 추가하면 좋은 패키지
+### 1. webpack-bundle-analyzer
+**1. 패키지 설치**
+```
+yarn add -D webpack-bundle-analyzer
+```
+
+<br />
+
+**2. webpack 셋팅**
+```js
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+  plugins: [
+    // webpack plugins...
+
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static", // 분석 파일 html을 build폴더에 저장
+      reportFilename: 'bundle-report.html', // 분석 파일 보고서 이름(자유롭게 지정)
+      openAnalyzer: false, // 분석 파일을 실행 시 자동으로 열지 않는다.
+      generateStatsFile: true, // 분석 파일을 json으로 저장한다.
+      statsFilename: "bundle-report.json", // 분석 파일 json 파일 이름 (자유롭게 지정)
+    })
+  ]
+}
+```
+
+<br />
+
+**3. package.json 셋팅**
+```json
+{
+  // ...
+  "scripts": {
+    // ...
+    "preanalyze": "yarn build:prod",
+    "analyze": "webpack-bundle-analyzer ./build/bundle-report.json --default-sizes gzip",
+  }
+}
+```
+
+<br />
+
+**4. yarn analyze 실행**
+- yarn analyze 실행 시 빌드 후 분석 진행
+```
+yarn analyze
+```
