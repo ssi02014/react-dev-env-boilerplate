@@ -34,18 +34,28 @@ yarn install
 <br />
 
 ## 👨🏻‍💻 master Branch
-**최근 업데이트 (2023.03.13)**
+- 가장 기본적인 react, babel, typescript, eslint, prettier 셋팅 브랜치
+- **최근 업데이트 (2023.03.13)**
+
+<br />
+
+**셋팅 목록**
 - react v18
 - typeScript
 - webpack v5
-- **babel**
+- babel
 - eslint
 - prettier
 
 <br />
 
 ## 👨🏻‍💻 esbuild-loader Branch
-**최근 업데이트 (2023.03.13)**
+- 기본 셋팅(master branch)에서 babel-loader대신 `esbuild-loader`를 적용해서 빌드 타임을 축소한 브랜치
+- **최근 업데이트 (2023.03.13)**
+
+<br />
+
+**셋팅 목록**
 - react v18
 - typeScript
 - webpack v5
@@ -53,11 +63,30 @@ yarn install
 - eslint
 - prettier
 
+<br />
+
+## 👨🏻‍💻 babel-jest Branch
+- 기본 셋팅(master branch)에서 `jest`, `react testing library` 테스트 환경 추가 브랜치
+- **최근 업데이트 (2023.03.14)**
 
 <br />
 
+**셋팅 목록**
+- react v18
+- typeScript
+- webpack v5
+- babel
+- eslint
+- prettier
+- **jest**
+- **react testing library**
+
+<br />
+<hr />
+
+## 🙋🏻 참고 문서
 ### 왜 esbuild-loader?
-- esbuild-loader는 멀티 스레드 기반으로 동작하는 Go언어로 작성된 로더이다. 그래서 싱글 스레드 기반인 자바스크립트로 만들어진 babel보다 언어가 동작하는 본질적인 차이때문에 퍼포먼스 측면에서 차이가 크다.
+- esbuild-loader는 `멀티 스레드 기반`으로 동작하는 Go언어로 작성된 로더이다. 그래서 싱글 스레드 기반인 자바스크립트로 만들어진 babel보다 언어가 동작하는 본질적인 차이때문에 퍼포먼스 측면에서 차이가 크다.
 - [kakao esbuild-loader 문서](https://fe-developers.kakaoent.com/2022/220707-webpack-esbuild-loader/)
 
 <br />
@@ -69,5 +98,25 @@ yarn install
 
 **esbuild-loader 도입 후 빌드 타임**
 <img width="690" alt="스크린샷 2023-03-12 오후 4 55 08" src="https://user-images.githubusercontent.com/64779472/224532394-d49742c1-8151-433c-b2c2-051b3def0578.png">
+
+<br />
+
+### @svgr/webpack
+- @svgr/webpack 패키지는 svg를 리액트 컴포넌트 형식으로 사용할 수 있게 변환해주는 웹팩 모듈이다.
+- https://react-svgr.com/
+
+<br />
+
+**예제**
+```jsx
+import Star from './star.svg'
+
+const Example = () => (
+  <div>
+    <Star />
+  </div>
+)
+```
+- @svgr/webpack를 적용하면 위 예제처럼 svg를 import해서 컴포넌트로 형식으로 사용할 수 있다.
 
 <br />
