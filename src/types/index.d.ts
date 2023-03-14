@@ -24,7 +24,7 @@ declare module '*.webp' {
 }
 
 declare module '*.svg' {
-  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  const content: React.ReactComponent<React.SVGAttributes<SVGElement>>;
   export default content;
 }
 
