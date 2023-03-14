@@ -20,6 +20,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
+      // 절대 경로(alias)는 이곳에 추가 + tsconfig.paths에 추가
       '@components': path.resolve(__dirname, '../src/components/'),
       '@pages': path.resolve(__dirname, '../src/pages/'),
       '@assets': path.resolve(__dirname, '../src/assets/'),
@@ -48,12 +49,27 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|jpeg|gif|ico|webp)$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 4 * 1024, // 4kb
+            maxSize: 50 * 1024, // 50kb 미만은 base64형태로 사용
           },
+        },
+        generator: {
+          filename: 'static/media/[name].[contenthash][ext]',
+        },
+      },
+      {
+        test: /\.(png|jpe?g|gif|ico|webp)$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024, // 4kb 미만은 base64형태로 사용
+          },
+        },
+        generator: {
+          filename: 'static/media/[name].[hash][ext][query]',
         },
       },
       {
