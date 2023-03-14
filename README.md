@@ -35,7 +35,7 @@ yarn install
 
 ## 👨🏻‍💻 master Branch
 - 가장 기본적인 react, babel, typescript, eslint, prettier 셋팅 브랜치
-- **최근 업데이트 (2023.03.13)**
+- **최근 업데이트 (2023.03.15)**
 
 <br />
 
@@ -51,7 +51,7 @@ yarn install
 
 ## 👨🏻‍💻 babel-jest Branch
 - master Branch 셋팅에서 `jest`, `react testing library` 테스트 환경 추가 브랜치
-- **최근 업데이트 (2023.03.14)**
+- **최근 업데이트 (2023.03.15)**
 
 <br />
 
@@ -69,7 +69,7 @@ yarn install
 
 ## 👨🏻‍💻 esbuild-loader Branch
 - master Branch 셋팅에서 babel-loader대신 `esbuild-loader`를 적용해서 빌드 타임을 감소시킨 브랜치
-- **최근 업데이트 (2023.03.13)**
+- **최근 업데이트 (2023.03.15)**
 
 <br />
 
@@ -86,7 +86,7 @@ yarn install
 ## 👨🏻‍💻 esbuild-jest Branch
 - esbuild-loader Branch 셋팅에서 `jest`, `react testing library` 테스트 환경 추가 브랜치
 - 테스트 환경을 위해 `@babel/preset-typescript`, `@babel/preset-env`, `@babel/preset-react` 및 babel 추가 셋팅
-- **최근 업데이트 (2023.03.14)**
+- **최근 업데이트 (2023.03.15)**
 
 <br />
 
@@ -148,14 +148,14 @@ const Example = () => (
 
 ## 👍 그 외 추가하면 좋은 패키지
 ### 1. webpack-bundle-analyzer
-**1. 패키지 설치**
+**패키지 설치**
 ```
 yarn add -D webpack-bundle-analyzer
 ```
 
 <br />
 
-**2. webpack 셋팅**
+**webpack 셋팅**
 ```js
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -176,7 +176,7 @@ module.exports = {
 
 <br />
 
-**3. package.json 셋팅**
+**package.json 셋팅**
 ```json
 {
   // ...
@@ -190,7 +190,7 @@ module.exports = {
 
 <br />
 
-**4. yarn analyze 실행**
+**yarn analyze 실행**
 - yarn analyze 실행 시 빌드 후 분석 진행
 ```
 yarn analyze
