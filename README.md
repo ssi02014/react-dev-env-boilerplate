@@ -43,14 +43,32 @@ yarn install
 - react v18
 - typeScript
 - webpack v5
-- babel
+- **babel**
 - eslint
 - prettier
 
 <br />
 
+## 👨🏻‍💻 babel-jest Branch
+- master Branch 셋팅에서 `jest`, `react testing library` 테스트 환경 추가 브랜치
+- **최근 업데이트 (2023.03.14)**
+
+<br />
+
+**셋팅 목록**
+- react v18
+- typeScript
+- webpack v5
+- **babel**
+- eslint
+- prettier
+- **jest**
+- **react testing library**
+
+<br />
+
 ## 👨🏻‍💻 esbuild-loader Branch
-- 기본 셋팅(master branch)에서 babel-loader대신 `esbuild-loader`를 적용해서 빌드 타임을 축소한 브랜치
+- master Branch 셋팅에서 babel-loader대신 `esbuild-loader`를 적용해서 빌드 타임을 감소시킨 브랜치
 - **최근 업데이트 (2023.03.13)**
 
 <br />
@@ -65,8 +83,9 @@ yarn install
 
 <br />
 
-## 👨🏻‍💻 babel-jest Branch
-- 기본 셋팅(master branch)에서 `jest`, `react testing library` 테스트 환경 추가 브랜치
+## 👨🏻‍💻 esbuild-jest Branch
+- esbuild-loader Branch 셋팅에서 `jest`, `react testing library` 테스트 환경 추가 브랜치
+- 테스트 환경을 위해 `@babel/preset-typescript`, `@babel/preset-env`, `@babel/preset-react` 및 babel 추가 셋팅
 - **최근 업데이트 (2023.03.14)**
 
 <br />
@@ -75,7 +94,7 @@ yarn install
 - react v18
 - typeScript
 - webpack v5
-- babel
+- esbuild-loader
 - eslint
 - prettier
 - **jest**
