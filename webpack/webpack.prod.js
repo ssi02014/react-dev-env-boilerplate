@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 const common = require('./webpack.common.js');
 
 require('dotenv').config({ path: './.env.production' });
@@ -8,6 +9,13 @@ require('dotenv').config({ path: './.env.production' });
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
+    new CompressionPlugin({
+      test: /\.(js|css|html)$/,
+      algorithm: 'gzip', // gzip으로 압축
+      threshold: 10240, // 10kb 이상 압축
+      minRatio: 0.8,
+    }),
+
     new webpack.EnvironmentPlugin({
       ...process.env,
     }),
