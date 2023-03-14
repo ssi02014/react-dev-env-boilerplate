@@ -14,7 +14,7 @@ const Example = ({ value }: Props) => {
 
       <div>
         <h3>SVG as React Component Test</h3>
-        <Logo />
+        <Logo></Logo>
       </div>
 
       <div>
