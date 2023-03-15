@@ -6,8 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -19,26 +17,13 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       // 절대 경로(alias)는 이곳에 추가 + tsconfig.paths에 추가
       '@components': path.resolve(__dirname, '../src/components/'),
       '@pages': path.resolve(__dirname, '../src/pages/'),
       '@assets': path.resolve(__dirname, '../src/assets/'),
     },
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin({
-        terserOptions: {
-          compress: {
-            drop_console: true,
-          },
-        },
-      }),
-    ],
   },
   module: {
     rules: [
@@ -56,7 +41,7 @@ module.exports = {
           },
         },
         generator: {
-          filename: 'static/media/[name].[contenthash][ext]',
+          filename: 'static/media/[name].[contenthash:8][ext]',
         },
       },
       {
@@ -68,13 +53,21 @@ module.exports = {
           },
         },
         generator: {
-          filename: 'static/media/[name].[hash][ext][query]',
+          filename: 'static/media/[name].[contenthash:8][ext]',
         },
       },
       {
         test: /\.svg$/i,
         type: 'asset',
         resourceQuery: /url/,
+        parser: {
+          dataUrlCondition: {
+            maxSize: 2 * 1024, // 2kb 미만은 base64형태로 사용
+          },
+        },
+        generator: {
+          filename: 'static/media/[name].[contenthash:8][ext]',
+        },
       },
       {
         test: /\.svg$/i,
@@ -102,7 +95,7 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
       favicon: './public/favicon.ico',
-      minify: process.env.NODE_ENV === 'production' && {
+      minify: {
         collapseWhitespace: true,
         removeComments: true,
       },
@@ -122,7 +115,8 @@ module.exports = {
       React: 'react',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[id].[contenthash:8].css',
     }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
