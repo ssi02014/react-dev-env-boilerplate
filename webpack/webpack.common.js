@@ -18,6 +18,15 @@ module.exports = {
     chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
     publicPath: '/',
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      // 절대 경로(alias)는 이곳에 추가 + tsconfig.paths에 추가
+      '@components': path.resolve(__dirname, '../src/components/'),
+      '@pages': path.resolve(__dirname, '../src/pages/'),
+      '@assets': path.resolve(__dirname, '../src/assets/'),
+    },
+  },
   optimization: {
     minimize: true,
     minimizer: [
@@ -30,15 +39,6 @@ module.exports = {
         },
       }),
     ],
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-    alias: {
-      // 절대 경로(alias)는 이곳에 추가 + tsconfig.paths에 추가
-      '@components': path.resolve(__dirname, '../src/components/'),
-      '@pages': path.resolve(__dirname, '../src/pages/'),
-      '@assets': path.resolve(__dirname, '../src/assets/'),
-    },
   },
   module: {
     rules: [
