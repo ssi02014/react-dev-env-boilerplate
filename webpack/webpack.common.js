@@ -1,13 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -18,20 +18,10 @@ module.exports = {
     chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
     publicPath: '/',
   },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-    alias: {
-      // 절대 경로(alias)는 이곳에 추가 + tsconfig.paths에 추가
-      '@components': path.resolve(__dirname, '../src/components/'),
-      '@pages': path.resolve(__dirname, '../src/pages/'),
-      '@assets': path.resolve(__dirname, '../src/assets/'),
-    },
-  },
   optimization: {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
-      // production 모드에서만 적용
       new TerserPlugin({
         terserOptions: {
           compress: {
@@ -40,9 +30,14 @@ module.exports = {
         },
       }),
     ],
-    splitChunks: {
-      chunks: 'all',
-      name: false,
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      // 절대 경로(alias)는 이곳에 추가 + tsconfig.paths에 추가
+      '@components': path.resolve(__dirname, '../src/components/'),
+      '@pages': path.resolve(__dirname, '../src/pages/'),
+      '@assets': path.resolve(__dirname, '../src/assets/'),
     },
   },
   module: {
