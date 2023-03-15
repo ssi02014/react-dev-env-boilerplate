@@ -8,6 +8,13 @@ require('dotenv').config({ path: './.env.development' });
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'source-map',
+  optimization: {
+    minimize: false,
+    splitChunks: {
+      chunks: 'all',
+      name: false,
+    },
+  },
   devServer: {
     static: false,
     client: {
