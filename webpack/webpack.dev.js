@@ -10,10 +10,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   optimization: {
     minimize: false,
-    splitChunks: {
-      chunks: 'all',
-      name: false,
-    },
+    splitChunks: false,
   },
   devServer: {
     static: false,

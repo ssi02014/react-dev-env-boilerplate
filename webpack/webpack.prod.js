@@ -22,6 +22,10 @@ module.exports = merge(common, {
         },
       }),
     ],
+    splitChunks: {
+      chunks: 'all',
+      name: false,
+    },
   },
   plugins: [
     new CompressionPlugin({
