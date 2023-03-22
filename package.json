@@ -66,6 +66,7 @@
     "serve": "^14.2.0",
     "style-loader": "^3.3.1",
     "ts-jest": "^29.0.5",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1",
