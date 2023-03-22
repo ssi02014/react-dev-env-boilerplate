@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -18,12 +19,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    alias: {
-      // 절대 경로(alias)는 이곳에 추가 + tsconfig.paths에 추가
-      '@components': path.resolve(__dirname, '../src/components/'),
-      '@pages': path.resolve(__dirname, '../src/pages/'),
-      '@assets': path.resolve(__dirname, '../src/assets/'),
-    },
+    plugins: [new TsconfigPathsPlugin()],
   },
   module: {
     rules: [
