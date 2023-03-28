@@ -845,7 +845,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.18.6"
 
-"@babel/plugin-transform-runtime@^7.16.4":
+"@babel/plugin-transform-runtime@^7.16.4", "@babel/plugin-transform-runtime@^7.21.0":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.21.0.tgz#2a884f29556d0a68cd3d152dcc9e6c71dfb6eee8"
   integrity sha512-ReY6pxwSzEU0b3r2/T/VhqMKg/AkceBT19X0UptA3/tYi5Pe2eXgEUH+NNMC5nok6c6XQz5tyVTUpuezRfSMSg==
@@ -1034,6 +1034,14 @@
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
+
+"@babel/runtime-corejs3@^7.21.0":
+  version "7.21.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.21.0.tgz#6e4939d9d9789ff63e2dc58e88f13a3913a24eba"
+  integrity sha512-TDD4UJzos3JJtM+tHX+w2Uc+KWj7GV+VKKFdMVd2Rx8sdA19hcc3P3AHFYd5LVOw+pYuSd5lICC3gm52B6Rwxw==
+  dependencies:
+    core-js-pure "^3.25.1"
+    regenerator-runtime "^0.13.11"
 
 "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.21.0"
@@ -3830,7 +3838,12 @@ core-js-pure@^3.23.3:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.29.0.tgz#0e1ac889214398641ea4bb1c6cf25ff0959ec1d2"
   integrity sha512-v94gUjN5UTe1n0yN/opTihJ8QBWD2O8i19RfTZR7foONPWArnjB96QA/wk5ozu1mm6ja3udQCzOzwQXTxi3xOQ==
 
-core-js@^3.19.2, core-js@^3.29.0:
+core-js-pure@^3.25.1:
+  version "3.29.1"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.29.1.tgz#1be6ca2b8772f6b4df7fc4621743286e676c6162"
+  integrity sha512-4En6zYVi0i0XlXHVz/bi6l1XDjCqkKRq765NXuX+SnaIatlE96Odt5lMLjdxUiNI1v9OXI5DSLWYPlmTfkTktg==
+
+core-js@^3.19.2:
   version "3.29.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.29.0.tgz#0273e142b67761058bcde5615c503c7406b572d6"
   integrity sha512-VG23vuEisJNkGl6XQmFJd3rEG/so/CNatqeE+7uZAwTSwFeB/qaO0be8xZYUNWprJ/GIwL8aMt9cj1kvbpTZhg==
