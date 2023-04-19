@@ -28,6 +28,7 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      // fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset',
@@ -40,8 +41,9 @@ module.exports = {
           filename: 'static/media/[name].[contenthash:8][ext]',
         },
       },
+      // image & video
       {
-        test: /\.(png|jpe?g|gif|ico|webp)$/i,
+        test: /\.(png|jpe?g|gif|ico|webp|mp4|webm)$/i,
         type: 'asset',
         parser: {
           dataUrlCondition: {
@@ -52,6 +54,7 @@ module.exports = {
           filename: 'static/media/[name].[contenthash:8][ext]',
         },
       },
+      // svg
       {
         test: /\.svg$/i,
         type: 'asset',
@@ -71,16 +74,17 @@ module.exports = {
         resourceQuery: { not: [/url/] },
         use: ['@svgr/webpack'],
       },
+      // style
       {
         test: /\.(css)$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
+      // html
       {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: true },
           },
         ],
       },
@@ -91,9 +95,15 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
       favicon: './public/favicon.ico',
+      // minify 속성 참고 https://github.com/terser/html-minifier-terser
       minify: {
         collapseWhitespace: true,
+        keepClosingSlash: true,
         removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true,
       },
     }),
     new CopyWebpackPlugin({
@@ -114,9 +124,7 @@ module.exports = {
       filename: 'static/css/[name].[contenthash:8].css',
       chunkFilename: 'static/css/[id].[contenthash:8].css',
     }),
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-    }),
+    new ForkTsCheckerWebpackPlugin(),
     new ESLintPlugin(),
     new CleanWebpackPlugin(),
   ],
