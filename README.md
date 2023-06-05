@@ -89,6 +89,15 @@ yarn install
   - jest를 위한 babel 일부 적용
 
 <br />
+
+## 🚀 그 외 보일러 플레이트 저장소
+### React 차세대 개발 툴 적용 보일러 플레이트 저장소
+- [react-vite-berry-boilerplate](https://github.com/ssi02014/react-vite-berry-boilerplate)
+- React, TypeScript, Vite, Yarn Berry로 구성한 리액트 프로젝트 보일러 플레이트 저장소
+- `Vite`를 이용한 리액트(+타입스크립트) 프로젝트 구성
+- Yarn Berry의 `Plug’n’Play(PnP)`와 `Zero-Install` 적용
+
+<br />
 <hr />
 
 ## 🙋🏻 참고 문서
