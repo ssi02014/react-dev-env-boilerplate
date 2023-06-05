@@ -91,6 +91,15 @@ yarn install
 <br />
 
 ## 🚀 그 외 보일러 플레이트 저장소
+### react-npm-deploy-boilerplate
+- [react-npm-deploy-boilerplate](https://github.com/ssi02014/react-npm-deploy-boilerplate)
+- Design System와 같은 npm 오픈소스 배포에 최적화 보일러 플레이트 저장소
+- React, rollup, Typescript, Storybook 등으로 구성
+- github actions를 이용한 자동 빌드 및 배포 구현
+- Storybook을 github page로 배포함으로써 데모 페이지로서 활용
+
+<br />
+
 ### React 차세대 개발 툴 적용 보일러 플레이트 저장소
 - [react-vite-berry-boilerplate](https://github.com/ssi02014/react-vite-berry-boilerplate)
 - React, TypeScript, Vite, Yarn Berry로 구성한 리액트 프로젝트 보일러 플레이트 저장소
